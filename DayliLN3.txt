@@ -1,0 +1,19 @@
+Alma Velazquez- lab Notes3
+Sprint 1 - 05/10
+
+¿Qué hice ayer?
+-documentarme sobre React
+-intalacion de archivos en el VSC
+-desarrollo de formulario
+-creacion de proyecto en FB
+-integracion de codigo firebase en VSC
+-documentacion de instalacion de react
+
+¿Qué haré hoy?
+-hacer que funcione el formulario(ingresar informacion y pintarla en la consola)
+-documentacion sobre ruteo en react
+
+¿Qué bloqueos tengo?
+Ninguno 
+
+
