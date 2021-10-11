@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-
 import { useAuth } from '../context/AuthContext';
 
 export const Home = () => {
+	const [error, setError] = useState('');
   const { logout, currentUser } = useAuth();
-  const history = useHistory();
-
-  const [error, setError] = useState('');
 
 
   const handleLogout = async () => {
     try {
       await logout();
-      history.push('/login');
     } catch (error) {
       setError('Server Error')
     }
   }
+
   return (
     <div className='card'>
       <div className='card-header' >
@@ -33,4 +29,3 @@ export const Home = () => {
     </div>
   )
 }
-

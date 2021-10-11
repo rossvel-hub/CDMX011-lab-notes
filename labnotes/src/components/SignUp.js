@@ -1,35 +1,42 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
 import logo from '../assets/logo.svg';
 import userIcon from '../assets/user.png'
 import passwordIcon from '../assets/password.png'
 import googleIcon from '../assets/google.png'
 
+import { useAuth } from '../context/AuthContext'
 
-export const Login = () => {
-  const { login, singinWithGoogle } = useAuth();
-	const [error, setError] = useState(null);
+export const SignUp = () => {
+  const { signup, singinWithGoogle } = useAuth();
+  const [error, setError] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const history = useHistory();
 
-  const handleEmail = e => setEmail(e.target.value);
-  const handlePassword = e => setPassword(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
+  const handleConfirmPassword = (e) => setConfirmPassword(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await login(email, password);
-      history.push('/');
-    } catch (error) {
-      setError('Wrong Credentials');
+    if (password !== confirmPassword) {
+      setError('Contraseñas no coinciden');
       setTimeout(() => setError(''), 1500);
+    } else {
+      try {
+        await signup(email, password);
+        history.push('/');
+      } catch (error) {
+        setError('Error de servidor');
+        setTimeout(() => setError(''), 1500);
+      }
     }
   }
 
-	const handleSingInWithGoogle = async (e) => {
+  const handleSingInWithGoogle = async (e) => {
     e.preventDefault();
     try {
       await singinWithGoogle();
@@ -41,7 +48,7 @@ export const Login = () => {
   }
 
   return (
-    <main className='login'>
+    <main className='singup'>
         {/* <!-- Inicio Container --> */}
         <section className='container'>
             {/* <!-- Inicio Cabecera --> */}
@@ -60,9 +67,14 @@ export const Login = () => {
                     <img src={passwordIcon} alt=''/>
                     <input type='password' placeholder='Contraseña' onChange={handlePassword} />
                 </div>
+                <div>
+                    <img src={passwordIcon} alt=''/>
+                    <input type='password' placeholder='Confirmar contraseña' onChange={handleConfirmPassword} />
+                </div>
                 {/* <button className='btn-login'>Log in</button> */}
-                <input type='submit' className='btn-login' value='Log In' />
+                <input type='submit' className='btn-login' value='Sing Up' />
             </form>
+
             <h3>Continue with</h3>
             <section className='social-media'>
                 <div>
@@ -71,8 +83,8 @@ export const Login = () => {
                 </div>
                 <br/>
                 <p className='register'>
-                    No tienes cuenta?
-                    <Link to='/signup'> Crear cuenta</Link>
+                    Ya tienes cuenta?
+                    <Link to='/login'> Inicia sesion</Link>
                 </p>
             </section>
             {/* <!-- Fin de formulario --> */}
