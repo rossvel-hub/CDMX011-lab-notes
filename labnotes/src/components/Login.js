@@ -42,15 +42,11 @@ export const Login = () => {
 
   return (
     <main className='login'>
-        {/* <!-- Inicio Container --> */}
         <section className='container'>
-            {/* <!-- Inicio Cabecera --> */}
             <header className='header'>
               <img src={logo} alt='logo'/>
             </header>
-            {/* <!-- Fin Cabecera --> */}
             {error && <p className='error' >{ error }</p>}
-            {/* <!-- Formulario --> */}
             <form onSubmit={handleSubmit}>
                 <div>
                     <img src={userIcon} alt=''/>
@@ -60,7 +56,6 @@ export const Login = () => {
                     <img src={passwordIcon} alt=''/>
                     <input type='password' placeholder='Contraseña' onChange={handlePassword} />
                 </div>
-                {/* <button className='btn-login'>Log in</button> */}
                 <input type='submit' className='btn-login' value='Log In' />
             </form>
             <h3>Continue with</h3>
@@ -75,7 +70,6 @@ export const Login = () => {
                     <Link to='/signup'> Crear cuenta</Link>
                 </p>
             </section>
-            {/* <!-- Fin de formulario --> */}
         </section>
     </main>
   )

@@ -49,15 +49,12 @@ export const SignUp = () => {
 
   return (
     <main className='singup'>
-        {/* <!-- Inicio Container --> */}
         <section className='container'>
-            {/* <!-- Inicio Cabecera --> */}
             <header className='header'>
               <img src={logo} alt='logo'/>
             </header>
-            {/* <!-- Fin Cabecera --> */}
             {error && <p className='error' >{ error }</p>}
-            {/* <!-- Formulario --> */}
+
             <form onSubmit={handleSubmit}>
                 <div>
                     <img src={userIcon} alt=''/>
@@ -71,7 +68,6 @@ export const SignUp = () => {
                     <img src={passwordIcon} alt=''/>
                     <input type='password' placeholder='Confirmar contraseña' onChange={handleConfirmPassword} />
                 </div>
-                {/* <button className='btn-login'>Log in</button> */}
                 <input type='submit' className='btn-login' value='Sing Up' />
             </form>
 
@@ -87,7 +83,6 @@ export const SignUp = () => {
                     <Link to='/login'> Inicia sesion</Link>
                 </p>
             </section>
-            {/* <!-- Fin de formulario --> */}
         </section>
     </main>
   )
