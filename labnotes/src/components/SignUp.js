@@ -58,15 +58,15 @@ export const SignUp = () => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <img src={userIcon} alt=''/>
-                    <input type="email" placeholder='Email' onChange={handleEmail} />
+                    <input type="email" placeholder='Email' onChange={handleEmail} required/>
                 </div>
                 <div>
                     <img src={passwordIcon} alt=''/>
-                    <input type='password' placeholder='Contraseña' onChange={handlePassword} />
+                    <input type='password' placeholder='Contraseña' onChange={handlePassword} required/>
                 </div>
                 <div>
                     <img src={passwordIcon} alt=''/>
-                    <input type='password' placeholder='Confirmar contraseña' onChange={handleConfirmPassword} />
+                    <input type='password' placeholder='Confirmar contraseña' onChange={handleConfirmPassword} required />
                 </div>
                 <input type='submit' className='btn-login' value='Sing Up' />
             </form>

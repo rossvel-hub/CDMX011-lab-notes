@@ -4,25 +4,12 @@ import { useData } from '../hooks/useData';
 import { Modal } from './Modal';
 import { useAuth } from '../context/AuthContext';
 import logo from '../assets/logo.svg';
-// import { collection, onSnapshot, QuerySnapshot } from '@firebase/firestore';
-// import { firebaseDB } from '../firebaseconfig';
 
 export const Container = () => {
 
 	const [setError] = useState('');
 	const { logout } = useAuth();
 	const { docs: notes } = useData('notes');
-
-	// useEffect (() => {
-	// 	const q = query(collection(firebaseDB, 'notes'));
-	// 	onSnapshot(q, (querySnapshot) => {
-	// 		const documents = [];
-	// 		querySnapshot.forEach(doc => {
-	// 			documents.push({id: doc.id, ...doc.data() })
-	// 		});
-	// 		setNotes(documents);
-	// 	});
-	// }, []);
 
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -38,19 +25,20 @@ export const Container = () => {
 	}
 
 	const newNote = { titulo : '', nota: '' }
+
 	return (
 		<>
-			<div className="logout">
+			<header className="notes-header">
 				<img src={logo} alt='logo' />
 				<span className="material-icons" onClick={handleLogout}>
 					exit_to_app
 				</span>
 
-			</div>
+			</header>
 
-			<div className='containerNotes'>
-				<main className='content'>
-					<div className='notes'>
+			<div className='notes-container'>
+				<main className='notes-content'>
+					<div className='notes-grid'>
 						{
 							notes.map((note) => (
 								<Note key={note.id} note={note} />

@@ -5,17 +5,19 @@ import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 
 const customStyles = {
 	content: {
-		height: '40%',
-		width: '40%',
+		minHeight: '40%',
+		width: '65%',
 		top: '50%',
 		left: '50%',
 		right: 'auto',
 		bottom: 'auto',
-		marginRight: '-50%',
+		// marginRight: '-50%',
 		transform: 'translate(-50%, -50%)',
-		background: 'rgb(214, 205, 241)',
-		border: 'node',
-		boxShadow: '5px 10px rgb(64, 4, 82)'
+		// background: 'rgb(214, 205, 241)',
+		// border: 'none',
+		borderRadius: '15px',
+		backgroundImage: 'linear-gradient(to top, rgb(214, 205, 241) 30%, rgb(222, 236, 235) 100%)',
+		boxShadow: '0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%)'
 	},
 };
 
@@ -47,12 +49,13 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 
 	const createNote = async () => {
 		try {
-			if(newTitulo === '' || newNota === '') {
+			if (newTitulo === '' || newNota === '') {
 				alert('los campos deben estar llenos, para publicar la nota');
 			} else {
 				await addDoc(collection(firebaseDB, 'notes'), {
 					titulo: newTitulo,
-					nota: newNota
+					nota: newNota,
+					fecha: Date.now()
 				})
 				closeModal();
 			}
@@ -60,12 +63,11 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 		} catch (error) {
 			console.error(error);
 		}
-
 	}
 
 	const updateNote = async () => {
 		try {
-			if(newTitulo === '' || newNota === '') {
+			if (newTitulo === '' || newNota === '') {
 				alert('los campos deben estar llenos, para publicar la nota');
 			} else {
 				await setDoc(doc(firebaseDB, 'notes', id), {
@@ -82,10 +84,12 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 
 	return (
 		<ReactModal isOpen={isOpen} style={customStyles} appElement={document.getElementById('root')}>
-			<form className='modal' onSubmit={handleSubmit}>
-				<div className='modal-div-close'>
-				<button className='close-button' onClick={closeModal}> X </button>
-				</div>
+			<div className='modal-header'>
+				<span className='material-icons modal-close-btn' onClick={closeModal}>
+					cancel
+				</span>
+			</div>
+			<form className='modal-form' onSubmit={handleSubmit}>
 				<input className='input-titulo' type='text' value={newTitulo} placeholder='Titulo' onChange={handleTituloChange} />
 				<textarea className='textarea-note' type='text' value={newNota} placeholder='Escribe una nota' onChange={handleNotaChange} />
 				{

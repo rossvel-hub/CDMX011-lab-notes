@@ -14,6 +14,6 @@ export const useData = (collectionName) => {
 		});
 						setDocs(documents);
 				})
-	}, [docs])
+	}, [])
 	return { docs }
 }
