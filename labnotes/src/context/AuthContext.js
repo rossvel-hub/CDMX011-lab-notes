@@ -29,12 +29,18 @@ export const AuthProvider = (props) => {
 
   const logout = () => auth.signOut();
 
+	const userId = () => {
+		return auth.currentUser.uid;
+	}
+
+
   const value = {
     currentUser,
     login,
     logout,
     signup,
-		singinWithGoogle
+		singinWithGoogle,
+		userId
   };
   return (
     <AuthContext.Provider value={value}>

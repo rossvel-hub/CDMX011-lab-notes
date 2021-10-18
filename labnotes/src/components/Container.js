@@ -37,7 +37,7 @@ export const Container = () => {
 			</header>
 
 			<div className='notes-container'>
-				<main className='notes-content'>
+				{/* <main className='notes-content'> */}
 					<div className='notes-grid'>
 						{
 							notes.map((note) => (
@@ -45,7 +45,7 @@ export const Container = () => {
 							))
 						}
 					</div>
-				</main>
+				{/* </main> */}
 			</div>
 			<button className='big-add show-add-note' onClick={showModal}>
 				<i className='material-icons'>add</i>

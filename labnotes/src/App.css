@@ -148,7 +148,6 @@
 }
 
 body {
-	background-color: #F7ECFA;
 	background-color: #F4F6FA;
 }
 
@@ -278,8 +277,8 @@ input:focus {
 
 .notes-content {
 	/* Flexbox para otros navegadores que no son chrome */
-	display: -webkit-flex;
-	display: flex;
+	/* display: -webkit-flex;
+	display: flex; */
 }
 
 .notes-grid {
@@ -369,6 +368,9 @@ padding: 8px 8px;
 /************************** Fin Notas **************************/
 
 /************************** Inicio Modal **********************/
+
+
+
 .modal-header {
 	display: flex;
 	flex-direction: row;
@@ -456,22 +458,10 @@ padding: 8px 8px;
 }
 /************************** Fin boton para agregar notas **************************/
 
-
-/*@media (max-width: 646px) {
-	.content {
-
-			display: -webkit-flex;
-			display: flex;
-			flex-flow: column wrap;
-			justify-content: space-between;
-	}
-}*/
+/****************************** Inicio Media query ********************************/
 
 /*Resolucion de de escritorio y mayor */
 @media (min-width: 992px) {
-	/* input {
-			width: 75%;
-	} */
 
 	input[type="text"],
 	input[type="email"],
@@ -485,6 +475,11 @@ padding: 8px 8px;
 	.btn-login {
 			margin: 35px 100px;
 	}
+
+	.ReactModal__Content {
+		width: 40% !important;
+	}
+
 }
 
 /* Resolucion de mobile y menor */
@@ -548,9 +543,10 @@ padding: 8px 8px;
 		font-size: 41px;
 	}
 
-		.note-card {
-			background: #F4F6FA;
-		}
+	.note-card {
+		background: #F4F6FA;
+	}
 }
 
 
+/****************************** Fin Media query ********************************/

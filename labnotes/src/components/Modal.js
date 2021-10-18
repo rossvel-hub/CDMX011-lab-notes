@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 import { firebaseDB } from '../firebaseconfig';
 import { collection, addDoc, doc, setDoc } from "firebase/firestore";
+import { useAuth } from '../context/AuthContext';
 
 const customStyles = {
 	content: {
@@ -26,6 +27,7 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 	const [newTitulo, setNewTitulo] = useState(titulo);
 	const [newNota, setNewNota] = useState(nota);
 	const [isOpen, setIsOpen] = useState(isVisible);
+	const { userId } = useAuth();
 
 
 	const closeModal = () => {
@@ -55,7 +57,8 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 				await addDoc(collection(firebaseDB, 'notes'), {
 					titulo: newTitulo,
 					nota: newNota,
-					fecha: Date.now()
+					fecha: Date.now(),
+					/*uid: await userId()*/
 				})
 				closeModal();
 			}
