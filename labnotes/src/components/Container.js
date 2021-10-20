@@ -9,8 +9,7 @@ export const Container = () => {
 
 	const [setError] = useState('');
 	const { logout } = useAuth();
-	const { docs: notes } = useData('notes');
-
+	const { docs: notes, userId, userEmail } = useData('notes');
 	const [isVisible, setIsVisible] = useState(false);
 
 	const showModal = () => setIsVisible(true);
@@ -24,12 +23,13 @@ export const Container = () => {
 		}
 	}
 
-	const newNote = { titulo : '', nota: '' }
+	const newNote = { titulo : '', nota: '', user: userId }
 
 	return (
 		<>
 			<header className="notes-header">
 				<img src={logo} alt='logo' />
+				<h3>{userEmail}</h3>
 				<span className="material-icons" onClick={handleLogout}>
 					exit_to_app
 				</span>

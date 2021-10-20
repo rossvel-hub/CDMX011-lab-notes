@@ -6,7 +6,6 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = (props) => {
-
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
@@ -29,18 +28,13 @@ export const AuthProvider = (props) => {
 
   const logout = () => auth.signOut();
 
-	const userId = () => {
-		return auth.currentUser.uid;
-	}
-
 
   const value = {
     currentUser,
     login,
     logout,
     signup,
-		singinWithGoogle,
-		userId
+		singinWithGoogle
   };
   return (
     <AuthContext.Provider value={value}>

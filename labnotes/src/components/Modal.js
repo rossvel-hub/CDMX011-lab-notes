@@ -23,11 +23,11 @@ const customStyles = {
 };
 
 export const Modal = ({ note, mode, isVisible, hideModal }) => {
-	const { id, titulo, nota } = note;
+	const { id, titulo, nota, user } = note;
 	const [newTitulo, setNewTitulo] = useState(titulo);
 	const [newNota, setNewNota] = useState(nota);
+	const [currentUser, setCurrentUser] = useState(user);
 	const [isOpen, setIsOpen] = useState(isVisible);
-	const { userId } = useAuth();
 
 
 	const closeModal = () => {
@@ -58,7 +58,7 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 					titulo: newTitulo,
 					nota: newNota,
 					fecha: Date.now(),
-					/*uid: await userId()*/
+					uid: currentUser
 				})
 				closeModal();
 			}
@@ -75,7 +75,9 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 			} else {
 				await setDoc(doc(firebaseDB, 'notes', id), {
 					titulo: newTitulo,
-					nota: newNota
+					nota: newNota,
+					fecha: Date.now(),
+					uid: currentUser
 				})
 				closeModal();
 			}
