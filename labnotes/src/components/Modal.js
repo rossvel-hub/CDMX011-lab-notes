@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 import { firebaseDB } from '../firebaseconfig';
 import { collection, addDoc, doc, setDoc } from "firebase/firestore";
-import { useAuth } from '../context/AuthContext';
+
 
 const customStyles = {
 	content: {
@@ -12,24 +12,19 @@ const customStyles = {
 		left: '50%',
 		right: 'auto',
 		bottom: 'auto',
-		// marginRight: '-50%',
 		transform: 'translate(-50%, -50%)',
-		// background: 'rgb(214, 205, 241)',
-		// border: 'none',
 		borderRadius: '15px',
 		backgroundImage: 'linear-gradient(to top, rgb(214, 205, 241) 30%, rgb(222, 236, 235) 100%)',
 		boxShadow: '0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%)'
 	},
 };
 
-export const Modal = ({ note, mode, isVisible, hideModal }) => {
-	const { id, titulo, nota, user } = note;
+export const Modal = ({ note, mode, isVisible, hideModal, userId }) => {
+	const { id, titulo, nota } = note;
+	const uid = userId;
 	const [newTitulo, setNewTitulo] = useState(titulo);
 	const [newNota, setNewNota] = useState(nota);
-	const [currentUser, setCurrentUser] = useState(user);
 	const [isOpen, setIsOpen] = useState(isVisible);
-
-
 	const closeModal = () => {
 		setIsOpen(false);
 		hideModal();
@@ -42,9 +37,8 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 		e.preventDefault();
 		if (mode === 'edit') {
 			updateNote();
-
 		} else {
-			console.log(createNote());
+			createNote();
 		}
 
 	}
@@ -58,7 +52,7 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 					titulo: newTitulo,
 					nota: newNota,
 					fecha: Date.now(),
-					uid: currentUser
+					uid: uid,
 				})
 				closeModal();
 			}
@@ -77,7 +71,7 @@ export const Modal = ({ note, mode, isVisible, hideModal }) => {
 					titulo: newTitulo,
 					nota: newNota,
 					fecha: Date.now(),
-					uid: currentUser
+					uid: uid,
 				})
 				closeModal();
 			}

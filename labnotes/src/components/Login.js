@@ -63,7 +63,7 @@ export const Login = () => {
             <section className='social-media'>
                 <div>
                     <img src={googleIcon} alt=''/>
-                    <a href='#' onClick={handleSingInWithGoogle}>Continue with Google</a>
+                    <a href='/#' onClick={handleSingInWithGoogle}>Continue with Google</a>
                 </div>
                 <br/>
                 <p className='register'>

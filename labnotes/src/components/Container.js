@@ -23,13 +23,12 @@ export const Container = () => {
 		}
 	}
 
-	const newNote = { titulo : '', nota: '', user: userId }
-
+	const newNote = { titulo : '', nota: ''}
 	return (
 		<>
 			<header className="notes-header">
 				<img src={logo} alt='logo' />
-				<h3>{userEmail}</h3>
+				<h3 className='color-user'>Welcome!!! <br/>{userEmail}</h3>
 				<span className="material-icons" onClick={handleLogout}>
 					exit_to_app
 				</span>
@@ -37,22 +36,20 @@ export const Container = () => {
 			</header>
 
 			<div className='notes-container'>
-				{/* <main className='notes-content'> */}
 					<div className='notes-grid'>
 						{
 							notes.map((note) => (
-								<Note key={note.id} note={note} />
+								<Note key={note.id} note={note} userId={userId}/>
 							))
 						}
 					</div>
-				{/* </main> */}
 			</div>
 			<button className='big-add show-add-note' onClick={showModal}>
 				<i className='material-icons'>add</i>
 			</button>
 			{
 				isVisible &&
-				<Modal mode='create' isVisible={isVisible} note={newNote} hideModal={hideModal} />
+				<Modal mode='create' isVisible={isVisible} note={newNote} hideModal={hideModal} userId={userId}/>
 			}
 		</>
 	)

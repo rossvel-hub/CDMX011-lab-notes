@@ -3,9 +3,8 @@ import { firebaseDB } from '../firebaseconfig'
 import { doc, deleteDoc } from "firebase/firestore";
 import { Modal } from './Modal';
 
-export const Note = ({ note }) => {
-	 const fecha = new Date(note.fecha).toLocaleDateString('es-MX',{year:'numeric', month:'2-digit', day:'2-digit'});
-	console.log(fecha);
+export const Note = ({ note, userId }) => {
+	const fecha = new Date(note.fecha).toLocaleDateString('es-MX',{year:'numeric', month:'2-digit', day:'2-digit'});
 	const { id, nota, titulo} = note;
 
 	const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +41,7 @@ export const Note = ({ note }) => {
 
 		{
 			isVisible &&
-			<Modal note={note} mode='edit' isVisible={isVisible} hideModal={hideModal}/>
+			<Modal note={note} mode='edit' isVisible={isVisible} hideModal={hideModal} userId={userId}/>
 		}
 		</article>
 

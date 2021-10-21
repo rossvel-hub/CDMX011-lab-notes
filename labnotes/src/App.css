@@ -178,6 +178,10 @@ body {
 	height: 100px;
 }
 
+.color-user{
+	color:rgb(49, 10, 223);
+}
+
 .error {
 	padding: 10px;
 	margin: 10px 0;

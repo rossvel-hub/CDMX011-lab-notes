@@ -1,13 +1,8 @@
 import { useState, useEffect } from 'react';
 import { firebaseDB } from '../firebaseconfig'
 import { collection, query, onSnapshot, orderBy, where } from "firebase/firestore";
-import { useAuth } from '../context/AuthContext';
 import { auth } from '../firebaseconfig';
 
-// export const getCurrentUserId = (currentUserObj) =>
-// {
-// 	return currentUserObj.uid;
-// }
 
 export const useData = (collectionName) => {
 	const [docs, setDocs] = useState([]);
@@ -17,8 +12,6 @@ export const useData = (collectionName) => {
 	useEffect(() => {
 		auth.onAuthStateChanged((user) => {
 			if (user) {
-				setUserId(user.uid);
-				setUserEmail(user.email);
 				const q = query(collection(firebaseDB, collectionName), where('uid','==', user.uid), orderBy('fecha', 'desc'));
 				onSnapshot(q, (querySnapshot) => {
 					const documents = [];
@@ -26,9 +19,12 @@ export const useData = (collectionName) => {
 						documents.push({ id: doc.id, ...doc.data() });
 					});
 					setDocs(documents);
+					setUserId(user.uid);
+					setUserEmail(user.email);
 				})
 			}
 		})
-	}, [])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [auth])
 	return { docs, userId, userEmail }
 }
