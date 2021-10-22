@@ -1,8 +1,21 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+it("renders without crashing", () => {
+	const {container} = render(<App />);
+	expect(container.outerHTML).not.toBeUndefined();
 });
+
+// beforeEach(() => render (<App/>))
+
+// test('test componente App', () => {
+
+// 	const contentEmail = screen.getByPlaceholderText('Email')
+// 	const contentPassword = screen.getByPlaceholderText('Contraseña')
+
+// 	expect(contentEmail).toBeInTheDocument()
+// 	expect(contentPassword).toBeInTheDocument()
+
+// });

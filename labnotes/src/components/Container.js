@@ -8,7 +8,7 @@ import logo from '../assets/logo.svg';
 export const Container = () => {
 
 	const [setError] = useState('');
-	const { logout } = useAuth();
+	const { logout, currentUser } = useAuth();
 	const { docs: notes, userId, userEmail } = useData('notes');
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -28,7 +28,8 @@ export const Container = () => {
 		<>
 			<header className="notes-header">
 				<img src={logo} alt='logo' />
-				<h3 className='color-user'>Welcome!!! <br/>{userEmail}</h3>
+				<h3 className='color-user'><br/>{userEmail}</h3>
+				<img src={currentUser.photoURL} alt='foto de usuario' className='profile'/>
 				<span className="material-icons" onClick={handleLogout}>
 					exit_to_app
 				</span>

@@ -11,6 +11,7 @@ export const AuthProvider = (props) => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+			console.log(user);
     })
   }, [])
 
