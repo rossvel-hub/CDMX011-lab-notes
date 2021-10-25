@@ -12,7 +12,7 @@ import { Container } from './components/Container';
 
 function App() {
   return (
-    <>
+     //<>
       <AuthProvider>
         <Router >
           <Switch>
@@ -22,7 +22,7 @@ function App() {
           </Switch>
         </Router>
       </AuthProvider>
-    </>
+    //</>
   );
 }
 
