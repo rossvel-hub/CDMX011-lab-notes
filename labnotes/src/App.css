@@ -1,0 +1,561 @@
+/*
+
+/* Estilos de la aplicacion base *//*
+
+.card {
+	background-image: linear-gradient(
+		to top,
+		rgb(214, 205, 241) 30%,
+		rgb(222, 236, 235) 100%
+	);
+	width: 400px;
+	height: 600px;
+	padding: 20px;
+	text-align: center;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.507);
+}
+
+.card-header {
+	margin: 50px 0;
+}
+
+.user-photo {
+	height: 150px;
+}
+
+.logout-button {
+	background-color: rgb(64, 4, 82);
+	color: white;
+	border: none;
+	padding: 15px 10px;
+	margin: 20px;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.logout-button:hover {
+	background-color: rgba(8, 18, 150, 0.685);
+}
+.logout {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 17px;
+	cursor: pointer;
+}
+.logout img {
+	padding: 30px;
+	width: 150px;
+	height: 150px;
+}
+.logout span {
+	margin: 30px;
+	color: rgb(64, 4, 82);
+	font-size: 50px;
+}
+.containerNotes {
+	width: 90%;
+	height: auto;
+	margin: auto;
+	margin-bottom: 40px;
+	background: none;
+}
+
+.content {
+	/* Flexbox para otros navegadores que no son chrome *//*
+	display: -webkit-flex;
+	display: flex;
+}
+*/
+/*.notes {*/
+	/* Flexbox para otros navegadores que no son chrome *//*
+	margin-top: 70px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+
+
+.note {
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+	-webkit-flex-basis: 250px;
+	flex-basis: 200px;
+	margin: 10px;
+	background-color: #fff;
+	background-image: linear-gradient(
+		to top,
+		rgb(214, 205, 241) 30%,
+		rgb(222, 236, 235) 100%
+	);
+	min-height: 4em;
+	border-radius: 10px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+		0 1px 5px 0 rgba(0, 0, 0, 0.12);
+	transition: box-shadow 0.2s;
+}
+
+.note-header,
+.note-body {
+	padding: 20px 20px;
+	color: rgba(0, 0, 0, 0.54);
+}
+
+.note-header h3 {
+	color: #2d32b4;
+}
+
+.action {
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	box-sizing: border-box;
+	cursor: pointer;
+	margin: 0 2px;
+	outline: none;
+	padding: 6px 2px;
+}
+
+.note-footer {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 8px;
+	position: relative;
+}
+
+.action-icons {
+	color: rgba(0, 0, 0, 0.54);
+}
+
+.note:hover {
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+*/
+
+/**************************** Estilos finales ************************/
+
+* {
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+	font-family: Roboto, sans-serif;
+}
+
+body {
+	background-color: #F4F6FA;
+}
+
+.login,
+.singup {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	width: 70%;
+	min-height: 80vh;
+	background-image: linear-gradient(to top, rgb(214, 205, 241) 30%, rgb(222, 236, 235) 100%);
+	border-radius: 2%;
+	border: 1px solid rgba(225, 225, 226, 0.8);
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+	padding: 40px 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+.header img {
+	height: 100px;
+}
+
+.color-user{
+	color:rgb(49, 10, 223);
+}
+
+
+.error {
+	padding: 10px;
+	margin: 10px 0;
+	background-color: rgba(255, 0, 0, 0.658);
+	color: white;
+}
+
+form  {
+	display: flex;
+	flex-direction: column;
+	width: 61%;
+}
+
+form > div img {
+	height: 45px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	border: 0px;
+	border-bottom: 2px solid black;
+	font-size: 1em;
+	height: 30px;
+	margin-bottom: 37px;
+	background: none;
+	padding: 0px 15px;
+	font-weight: bold;
+	width: 75%;
+}
+
+input:focus {
+	outline: none;
+}
+
+.btn-login {
+	background-color: #111866;
+	color: white;
+	height: 50px;
+	border-radius: 25px;
+	border: none;
+	font-size: 2rem;
+	word-spacing: 5px;
+	cursor: pointer;
+	margin: 20px 0px;
+}
+
+.social-media > div {
+	display: flex;
+	align-items: center;
+}
+
+.social-media a {
+	font-weight: bold;
+	color: #2d32b4;
+}
+
+.social-media a:hover {
+	text-decoration: underline;
+	color: #1a25a3;
+}
+
+/************************** Inicio Notas **************************/
+.notes-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 17px;
+}
+
+.notes-header img {
+	height: 100px;
+  padding: 40px;
+}
+
+.notes-header span {
+	color: rgb(64, 4, 82);
+	font-size: 41px;
+	margin-right: 35px;
+	padding: 10px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.notes-header span:hover {
+	background-color: rgba(158,158,158,0.2);
+}
+
+.profile{
+	border-radius: 50%;
+}
+
+.notes-container {
+	width: 90%;
+	height: auto;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	background: none;
+}
+
+.notes-content {
+	/* Flexbox para otros navegadores que no son chrome */
+	/* display: -webkit-flex;
+	display: flex; */
+}
+
+.notes-grid {
+	/* Flexbox para otros navegadores que no son chrome */
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.note-card {
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+	-webkit-flex-basis: 250px;
+	flex-basis: 250px;
+	margin: 10px;
+	background-image: linear-gradient(
+		to top,
+		rgb(214, 205, 241) 30%,
+		rgb(222, 236, 235) 100%
+	);
+	min-height: 4em;
+	border-radius: 10px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+	transition: box-shadow 0.2s;
+	border: 1.5px solid #e0e0e0;
+}
+
+.note-card:hover {
+	box-shadow: 0  2px 15px rgba(0,0,0,0.30);
+	transition: 0.2s;
+}
+
+.note-card-header {
+	padding: 20px 20px;
+}
+
+.note-card-body {
+	padding: 0px 20px 20px;
+}
+
+
+.note-card-header h3 {
+	color: black;
+	font-size: 19px;
+	font-stretch: semi-condensed;
+}
+
+.note-card-body p {
+	color: #443f3f;
+	font-size: 14px;
+}
+
+.note-card-footer {
+	display: flex;
+    justify-content: space-between;
+    border-top: 2px inset #dadada54;
+    align-items: center;
+}
+
+.date-last-modification {
+	margin-left: 10px;
+	color: gray;
+}
+
+
+.note-card-footer .action-icons {
+color: rgba(0,0,0,0.54);
+}
+
+.note-card-footer .action-icon {
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+cursor: pointer;
+outline: none;
+padding: 8px 8px;
+}
+
+.note-card-footer .action-icon:hover {
+	background-color: rgba(158,158,158,0.2);
+}
+
+/************************** Fin Notas **************************/
+
+/************************** Inicio Modal **********************/
+
+
+
+.modal-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	color:  rgba(0,0,0,0.54);
+}
+
+.modal-close-btn {
+	font-size: 33px;
+	font-weight: 700;
+	cursor: pointer;
+	color: #111866;
+}
+
+.modal-form {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin: 40px auto;
+}
+
+.input-titulo {
+	margin-top: 20px;
+	border-radius: 11px;
+	height: 50px;
+	font-size: 1.5rem;
+}
+
+.textarea-note {
+	margin-top: 20px;
+	border-radius: 11px;
+	border: none;
+	height: 100px;
+	width: 75%;
+	font-size: 1.5rem;
+	padding: 20px;
+	background-color: #F4F6FA;
+}
+
+.textarea-note:focus {
+	outline: none;
+}
+
+.create-btn,
+.edit-btn {
+		margin-top: 51px;
+    border-radius: 20px;
+    height: 40px;
+    width: 50%;
+    font-size: x-large;
+    font-weight: 700;
+    background-color: #111866;
+    border: none;
+    color: white;
+}
+
+/************************** Fin Modal **********************/
+
+/************************** Inicio boton para agregar notas **************************/
+.big-add {
+	background-color: rgb(64, 4, 82);
+	color: #fff;
+	padding: 0;
+	border-radius: 50%;
+	position: fixed;
+	bottom: 16px;
+	right: 16px;
+	border: none;
+	box-shadow: none;
+	width: 56px;
+	height: 56px;
+	padding: 16px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	cursor: pointer;
+}
+
+
+.big-add i {
+	font-size: 24px;
+	line-height: 24px;
+}
+/************************** Fin boton para agregar notas **************************/
+
+/****************************** Inicio Media query ********************************/
+
+/*Resolucion de de escritorio y mayor */
+@media (min-width: 992px) {
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"] {
+		width: 88%;
+	}
+	.container {
+			border-radius: .5%;
+	}
+
+	.btn-login {
+			margin: 35px 100px;
+	}
+
+	.ReactModal__Content {
+		width: 40% !important;
+	}
+
+}
+
+/* Resolucion de mobile y menor */
+@media (max-width: 576px) {
+
+	body {
+			background-image: linear-gradient(to top, rgb(214, 205, 241) 30%, rgb(222, 236, 235) 100%);
+	}
+
+	.container {
+			width: 100%;
+			height: calc(100vh - 80px);
+			box-shadow: none;
+			border-radius: 0%;
+			padding: 0px;
+			background-color: none;
+			border: none;
+	}
+
+	form {
+			width: auto;
+	}
+
+	form > div img {
+			height: 34px;
+			margin-bottom: 6px;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"] {
+		width: 85%;
+	}
+
+	.social-media > div img {
+			height: 40px;
+	}
+
+	.content {
+			/* Flexbox para otros navegadores que no son chrome */
+			display: -webkit-flex;
+			display: flex;
+			flex-flow: column wrap;
+			justify-content: space-between;
+	}
+
+	.notes-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px 17px;
+	}
+
+	.notes-header img {
+		height: 70px;
+		padding: 40px 40px 0px 15px;
+	}
+
+	.notes-header span {
+		margin: 25px 10px 0px 19px;
+		font-size: 41px;
+	}
+
+	.note-card {
+		background: #F4F6FA;
+	}
+}
+
+
+/****************************** Fin Media query ********************************/
