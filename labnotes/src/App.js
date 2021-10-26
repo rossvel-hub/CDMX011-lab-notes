@@ -1,3 +1,4 @@
+import React, { Fragment } from 'react';
 import './App.css';
 import { Login } from './components/Login';
 import { SignUp } from './components/SignUp';
@@ -8,7 +9,7 @@ import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
-     <>
+     <Fragment>
       <AuthProvider>
         <Router >
           <Switch>
@@ -18,7 +19,7 @@ function App() {
           </Switch>
         </Router>
       </AuthProvider>
-    </>
+    </Fragment>
   );
 }
 

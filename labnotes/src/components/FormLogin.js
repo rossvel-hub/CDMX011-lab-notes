@@ -1,27 +1,17 @@
-import React from 'react'
+//import React from 'react'
+import React, { useState } from 'react';
 import userIcon from '../assets/user.png'
 import passwordIcon from '../assets/password.png'
-import { useAuth } from '../context/AuthContext';
 
 
-export const FormLogin = ({handleSubmit, handleEmail, handlePassword}) => {
-	const { login } = useAuth();
-	const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+export const FormLogin = ({handleSubmit}) => {
+
+	const [setEmail] = useState('');
+  const [setPassword] = useState('');
 
 	const handleEmail = e => setEmail(e.target.value);
   const handlePassword = e => setPassword(e.target.value);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await login(email, password);
-      history.push('/');
-    } catch (error) {
-      setError('Wrong Credentials');
-      setTimeout(() => setError(''), 1500);
-    }
-  }
 
 	return (
 		<form onSubmit={handleSubmit}>

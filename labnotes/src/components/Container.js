@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Note } from './Note';
 import { useData } from '../hooks/useData';
 import { Modal } from './Modal';
@@ -25,7 +25,7 @@ export const Container = () => {
 
 	const newNote = { titulo : '', nota: ''}
 	return (
-		<>
+		<Fragment>
 			<header className="notes-header">
 				<img src={logo} alt='logo' />
 				<h3 className='color-user'><br/>{userEmail}</h3>
@@ -51,6 +51,6 @@ export const Container = () => {
 				isVisible &&
 				<Modal mode='create' isVisible={isVisible} note={newNote} hideModal={hideModal} userId={userId}/>
 			}
-		</>
+		</Fragment>
 	)
 }

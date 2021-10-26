@@ -8,24 +8,24 @@ import { FormLogin } from './FormLogin';
 export const Login = () => {
   const { login, singinWithGoogle } = useAuth();
 	const [error, setError] = useState(null);
-	// const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+	 const [email] = useState('');
+   const [password] = useState('');
 
 	// const handleEmail = e => setEmail(e.target.value);
   // const handlePassword = e => setPassword(e.target.value);
 
-  // const history = useHistory();
+  const history = useHistory();
 
-	// const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await login(email, password);
-  //     history.push('/');
-  //   } catch (error) {
-  //     setError('Wrong Credentials');
-  //     setTimeout(() => setError(''), 1500);
-  //   }
-  // }
+	const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await login(email, password);
+      history.push('/');
+    } catch (error) {
+      setError('Wrong Credentials');
+      setTimeout(() => setError(''), 1500);
+    }
+  }
 
 	const handleSingInWithGoogle = async (e) => {
     e.preventDefault();
