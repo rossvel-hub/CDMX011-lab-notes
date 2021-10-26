@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from '@testing-ibrary/react'
+import { render } from '@testing-library/react'
 import Note from '../components/Note'
 
 test('Renderizar el contenido de Note', () => {

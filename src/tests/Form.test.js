@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-ibrary/react'
+import { render, screen } from '@testing-library/react'
 import React from "react";
 
 describe('test en Form', () => {
