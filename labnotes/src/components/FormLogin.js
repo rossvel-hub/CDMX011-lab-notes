@@ -1,12 +1,11 @@
-
 import React from 'react'
 import userIcon from '../assets/user.png'
 import passwordIcon from '../assets/password.png'
+import { useAuth } from '../context/AuthContext';
 
 
-
-// {handleSubmit, handleEmail, handlePassword}
-export const FormLogin = () => {
+export const FormLogin = ({handleSubmit, handleEmail, handlePassword}) => {
+	const { login } = useAuth();
 	const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

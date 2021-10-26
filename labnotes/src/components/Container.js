@@ -33,7 +33,6 @@ export const Container = () => {
 				<span className="material-icons" onClick={handleLogout}>
 					exit_to_app
 				</span>
-
 			</header>
 
 			<div className='notes-container'>
