@@ -9,10 +9,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { PrivateRoute } from './components/PrivateRoute';
 
 import { Container } from './components/Container';
+import React, { Fragment } from 'react';
 
 function App() {
   return (
-    <>
+    <Fragment>
       <AuthProvider>
         <Router >
           <Switch>
@@ -22,7 +23,7 @@ function App() {
           </Switch>
         </Router>
       </AuthProvider>
-    </>
+    </Fragment>
   );
 }
 
