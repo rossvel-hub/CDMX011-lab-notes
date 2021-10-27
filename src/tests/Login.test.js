@@ -1,29 +1,51 @@
-import { enableIndexedDbPersistence } from '@firebase/firestore';
-import '@testing-library/jest-dom'
-import React from 'react';
-import { Login } from '../components/Login'
+// import '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { FormLogin } from '../components/FormLogin'
 
-describe('test en Login', () => {
 
-	it('Renderiza apropiadamente', () => {
-		render(<Login />)
-		expect(screen.getByText(/Continue with/i)).toBeInTheDocument()
-	})
+beforeEach(() => render(<FormLogin/>)) 
 
-	it('Test placeholder', () => {
+test('sobre el coponente FormLogin', () => {
+    
+    const mockHandleSubmit = jest.fn();
+    render(<FormLogin handleSubmit={(mockHandleSubmit)} />);
 
-		const contentEmail = screen.getByPlaceholderText('email')
-		const contentPassword = screen.getByPlaceholderText('email')
+    const inputEmail = screen.getByPlaceholderText('Correo')[0]
+    const inputPassword = screen.getByPlaceholderText('Contraseña')[0]
+    const btnSubmit = screen.getByRole('input', {name:/Log In/i})
 
-		expect(contentEmail).toBeInTheDocument()
-		expect(contentPassword).toBeInTheDocument()
 
-	})
+    expect(inputEmail).toBeInTheDocument()
+    expect(inputPassword).toBeInTheDocument()
+    expect(btnSubmit).toBeInTheDocument()
 
-	// test('Debe mostrarse correctamente', () => {
-	// 	const wrapper = shallow(<Login/>);
-	// 	expect( wrapper ).toMatchSnapshot();
-	// })
+    const emailValue = "vicky@labo.com";
+    const passwordValue = "12345678";
+
+    fireEvent.change(inputEmail, { target: { value: emailValue } });
+    fireEvent.change(inputPassword, { target: { value: passwordValue } });
+    fireEvent.click(btnSubmit);
+    expect(mockHandleSubmit).toHaveBeenCalledWith(emailValue, passwordValue);
+
+    // //click
+    // fireEvent.submit(contentSubmit)
+
+    // expect(mockHandleSubmit).toHaveBeenCalledWith( "vicky@labo.com", "12345678");
+
+    // test("sobre el componente FormLogin", () => {
+        // const mockHandleLogin = jest.fn();
+        // render(<FormLogin handleLogin={(mockHandleLogin)} />);
+        // const contentEmail = screen.getByPlaceholderText("ejemplo@ejemplo.com");
+        // const contentPasswords = screen.getByPlaceholderText("*******");
+        // const buttonLogin = screen.getByText("Inicia Sesión");
+        // expect(contentEmail).toBeInTheDocument();
+        // expect(contentPasswords).toBeInTheDocument();
+        // const emailValue = "vicky@labo.com";
+        // const passwordValue = "12345678";
+        // fireEvent.change(contentEmail, { target: { value: emailValue } });
+        // fireEvent.change(contentPasswords, { target: { value: passwordValue } });
+        // fireEvent.click(buttonLogin);
+        // expect(mockHandleLogin).toHaveBeenCalledWith(emailValue, passwordValue);
+    //   });
+
 });
-
-

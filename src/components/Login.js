@@ -2,24 +2,17 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import logo from '../assets/logo.svg';
-import userIcon from '../assets/user.png'
-import passwordIcon from '../assets/password.png'
+import { FormLogin } from '../components/FormLogin';
 import googleIcon from '../assets/google.png'
 
 
 export const Login = () => {
+
   const { login, singinWithGoogle } = useAuth();
 	const [error, setError] = useState(null);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const history = useHistory();
 
-  const handleEmail = e => setEmail(e.target.value);
-  const handlePassword = e => setPassword(e.target.value);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (email, password) => {
     try {
       await login(email, password);
       history.push('/');
@@ -47,17 +40,8 @@ export const Login = () => {
               <img src={logo} alt='logo'/>
             </header>
             {error && <p className='error' >{ error }</p>}
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <img src={userIcon} alt=''/>
-                    <input type="email" placeholder='Email' onChange={handleEmail} required/>
-                </div>
-                <div>
-                    <img src={passwordIcon} alt=''/>
-                    <input type='password' placeholder='Contraseña' onChange={handlePassword} required/>
-                </div>
-                <input type='submit' className='btn-login' value='Log In' />
-            </form>
+            <FormLogin handleSubmit={handleSubmit} />
+
             <h3>Continue with</h3>
             <section className='social-media'>
                 <div>
