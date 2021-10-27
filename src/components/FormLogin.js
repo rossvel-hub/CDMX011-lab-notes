@@ -18,7 +18,7 @@ return (
         <img src={passwordIcon} alt='' />
         <input type='password' placeholder='Contraseña' onChange={handlePassword} required />
     </div>
-    <input type='submit' className='btn-login' value='Log In' 
+    <input type='submit' data-testid='submit-test' className='btn-login' value='Log In' 
     onClick={(e) => {
       e.preventDefault();
       handleSubmit(email, password);

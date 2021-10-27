@@ -8,14 +8,3 @@ it("renders without crashing", () => {
 	expect(container.outerHTML).not.toBeUndefined();
 });
 
-// beforeEach(() => render (<App/>))
-
-// test('test componente App', () => {
-
-// 	const contentEmail = screen.getByPlaceholderText('Email')
-// 	const contentPassword = screen.getByPlaceholderText('Contraseña')
-
-// 	expect(contentEmail).toBeInTheDocument()
-// 	expect(contentPassword).toBeInTheDocument()
-
-// });
