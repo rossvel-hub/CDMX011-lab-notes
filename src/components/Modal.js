@@ -36,11 +36,12 @@ export const Modal = ({ note, mode, isVisible, hideModal, userId }) => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		if (mode === 'edit') {
+			// eslint-disable-next-line
 			updateNote();
 		} else {
+			// eslint-disable-next-line
 			createNote();
 		}
-
 	}
 
 	const createNote = async () => {
