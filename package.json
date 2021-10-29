@@ -12,7 +12,7 @@
     "react-media": "^1.10.0",
     "react-modal": "^3.14.3",
     "react-router-dom": "^5.3.0",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^3.4.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -42,5 +42,17 @@
   "devDependencies": {
     "jest-dom": "^4.0.0",
     "react-testing-library": "^8.0.1"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rossvel-hub/CDMX011-lab-notes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rossvel-hub/CDMX011-lab-notes/issues"
+  },
+  "homepage": "https://github.com/rossvel-hub/CDMX011-lab-notes#readme"
 }
